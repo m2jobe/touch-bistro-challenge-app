@@ -19,7 +19,7 @@
    npm run android
    ```
 
-## Testing is performed with jest
+## Unit testing is performed with jest
 
 To run tests
 
