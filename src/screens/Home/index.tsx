@@ -9,6 +9,7 @@ import { MainScreenProps } from 'types/navigation';
 import Checkout from '@/components/Checkout';
 import Cart from '@/components/Cart';
 import MenuItems from '@/components/MenuItems';
+import { GestureHandlerRootView } from 'react-native-gesture-handler';
 
 const Home = ({ navigation }: MainScreenProps<'Navigation'>) => {
   const dispatch = useDispatch();
@@ -42,30 +43,32 @@ const Home = ({ navigation }: MainScreenProps<'Navigation'>) => {
   };
 
   return (
-    <ScrollView style={styles.scrollView}>
-      <TopNavigation title="Menu" alignment="center" />
-      <Divider />
-      <Layout style={styles.topContainer} level="1">
-        <MenuItems addToMenu={addToMenu} />
+    <GestureHandlerRootView style={styles.gestureHandlerRootView}>
+      <ScrollView style={styles.scrollView}>
+        <TopNavigation title="Menu" alignment="center" />
+        <Divider />
+        <Layout style={styles.topContainer} level="1">
+          <MenuItems addToMenu={addToMenu} />
 
-        <View style={styles.cartAndCheckoutContainers}>
-          <Button
-            testID="discounts-button"
-            onPress={goToDiscountsPage}
-            size="tiny"
-          >
-            Discounts
-          </Button>
-          <Cart removeFromMenu={removeFromMenu} cartData={cartData} />
+          <View style={styles.cartAndCheckoutContainers}>
+            <Button
+              testID="discounts-button"
+              onPress={goToDiscountsPage}
+              size="tiny"
+            >
+              Discounts
+            </Button>
+            <Cart removeFromMenu={removeFromMenu} cartData={cartData} />
 
-          <View style={styles.divider}>
-            <Divider />
+            <View style={styles.divider}>
+              <Divider />
+            </View>
+
+            <Checkout />
           </View>
-
-          <Checkout />
-        </View>
-      </Layout>
-    </ScrollView>
+        </Layout>
+      </ScrollView>
+    </GestureHandlerRootView>
   );
 };
 

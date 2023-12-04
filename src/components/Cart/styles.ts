@@ -18,6 +18,10 @@ const styles = StyleSheet.create({
   cartContainer: {
     marginTop: 16,
   },
+  deleteText: {
+    alignSelf: 'center',
+    color: 'red',
+  },
 });
 
 export default styles;

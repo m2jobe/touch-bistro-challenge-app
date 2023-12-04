@@ -12,14 +12,22 @@ type Props = {
 const Cart = ({ removeFromMenu, cartData }: Props) => {
   const cartDataArray = Object.values(cartData);
 
+  const renderDeleteText = () => <Text style={styles.deleteText}>Delete</Text>;
+
   return (
     <View style={styles.cartContainer}>
       <Text category="s1"> Cart</Text>
+
       <Divider />
       {cartDataArray?.length ? (
         cartDataArray.map((cartItem, index) => (
           <Swipeable
             key={`cartItem-id-${index}`}
+            friction={2}
+            enableTrackpadTwoFingerGesture
+            leftThreshold={30}
+            rightThreshold={40}
+            renderLeftActions={renderDeleteText}
             onSwipeableWillOpen={removeFromMenu(cartItem)}
           >
             <View
