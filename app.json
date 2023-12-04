@@ -1,0 +1,9 @@
+{
+  "name": "RestaurantPOS",
+  "displayName": "RestaurantPOS",
+  "build": {
+    "babel": {
+      "include": ["@ui-kitten/components"]
+    }
+  }
+}
