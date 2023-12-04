@@ -18,7 +18,6 @@ const styles = StyleSheet.create({
   },
 });
 
-// @refresh reset
 const ApplicationNavigator = () => {
   const navigationRef = useNavigationContainerRef();
 
